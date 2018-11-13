@@ -29,8 +29,7 @@ def donate():
             donor = None
 
         if donor:
-            donation = Donation(donor=donor, value=request.form['donation'])
-            donation.save()
+            Donation(donor=donor, value=request.form['donation']).save()
             return redirect(url_for('home'))
         else:
             return render_template('create.jinja2', error='Donor not found in database.')
